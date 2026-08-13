@@ -806,10 +806,11 @@ function startExperience(){
     const music =
         document.getElementById("music");
 
-    music.volume=.25;
+    music.volume = 0.7;
 
-    music.play().catch(()=>{});
-}
+music.currentTime = 28;
+
+music.play().catch(()=>{});
 
 
 /* =========================================
