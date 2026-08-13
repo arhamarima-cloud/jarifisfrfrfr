@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Ramisa 🌹</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    min-height:100vh;
+    overflow:hidden;
+    font-family:"Segoe UI",Arial,sans-serif;
+    background:
+        radial-gradient(circle at 10% 10%,#ffd6e7,transparent 35%),
+        radial-gradient(circle at 90% 90%,#d9e8ff,transparent 40%),
+        linear-gradient(135deg,#fff0f6,#eef5ff);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#222;
+}
+
+/* FLOATING FLOWERS */
+
+#flowers{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:1;
+}
+
+.flower{
+    position:absolute;
+    top:-80px;
+    animation:fall linear forwards;
+    user-select:none;
+}
+
+@keyframes fall{
+    0%{
+        transform:translateY(-80px) rotate(0deg);
+        opacity:0;
+    }
+    10%{opacity:1;}
+    50%{
+        transform:translateY(50vh) translateX(50px) rotate(180deg);
+    }
+    100%{
+        transform:translateY(115vh) translateX(-70px) rotate(360deg);
+        opacity:.2;
+    }
+}
+
+/* SPARKLES */
+
+.sparkle{
+    position:fixed;
+    pointer-events:none;
+    z-index:3;
+    animation:sparkle 1.6s ease forwards;
+}
+
+@keyframes sparkle{
+    0%{
+        transform:scale(0) rotate(0);
+        opacity:0;
+    }
+    40%{
+        transform:scale(1.4) rotate(90deg);
+        opacity:1;
+    }
+    100%{
+        transform:scale(0) rotate(180deg);
+        opacity:0;
+    }
+}
+
+/* MAIN SCREENS */
+
+.screen{
+    position:relative;
+    z-index:10;
+    width:90%;
+    max-width:750px;
+    min-height:500px;
+    padding:45px 35px;
+
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.76);
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.8);
+    border-radius:35px;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.15),
+        inset 0 1px 0 white;
+
+    animation:screenIn .65s ease;
+}
+
+.screen.active{
+    display:flex;
+}
+
+@keyframes screenIn{
+    from{
+        opacity:0;
+        transform:translateY(25px) scale(.94);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+/* TEXT */
+
+h1{
+    font-size:3.2rem;
+    margin-bottom:18px;
+}
+
+h2{
+    font-size:2.1rem;
+    margin-bottom:20px;
+}
+
+p{
+    font-size:1.1rem;
+    line-height:1.7;
+    margin-bottom:17px;
+}
+
+.big{
+    font-size:2.2rem;
+    font-weight:900;
+}
+
+.gradient{
+    background:linear-gradient(90deg,#ff006e,#c9184a,#8338ec);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+/* BUTTONS */
+
+button{
+    border:0;
+    padding:14px 28px;
+    margin:8px;
+    border-radius:999px;
+    font-size:1rem;
+    font-weight:700;
+    cursor:pointer;
+    color:white;
+    background:#222;
+    transition:.25s;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+
+button:hover{
+    transform:scale(1.07) translateY(-3px);
+}
+
+button:active{
+    transform:scale(.94);
+}
+
+.yes{
+    background:#38b000;
+}
+
+.no{
+    background:#ff4d6d;
+}
+
+.continue{
+    background:linear-gradient(135deg,#ff4d6d,#c9184a);
+}
+
+.gold{
+    background:linear-gradient(135deg,#f6b800,#ff8c00);
+}
+
+/* EMOJI */
+
+.emoji{
+    font-size:5rem;
+    margin-bottom:15px;
+    animation:float 2s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-12px);}
+}
+
+/* MEMES */
+
+.meme{
+    width:min(90%,450px);
+    margin:18px auto;
+    padding:22px;
+    border-radius:20px;
+    background:#111;
+    color:white;
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+    font-weight:800;
+}
+
+.memeEmoji{
+    font-size:3.5rem;
+    margin-bottom:12px;
+}
+
+.memeSmall{
+    margin-top:12px;
+    font-size:.9rem;
+    opacity:.7;
+}
+
+/* RESULT */
+
+.result{
+    font-size:4rem;
+    font-weight:900;
+    background:linear-gradient(90deg,#ff006e,#8338ec,#3a86ff);
+    -webkit-background-clip:text;
+    color:transparent;
+    animation:glow 1.8s infinite alternate;
+}
+
+@keyframes glow{
+    from{filter:drop-shadow(0 0 0 transparent);}
+    to{filter:drop-shadow(0 0 18px rgba(255,0,110,.4));}
+}
+
+/* PHOTO */
+
+.photo{
+    width:190px;
+    height:190px;
+    object-fit:cover;
+    border-radius:50%;
+    border:7px solid white;
+    box-shadow:0 15px 40px rgba(0,0,0,.2);
+    margin-bottom:20px;
+}
+
+/* SIGNATURE */
+
+.signature{
+    margin-top:18px;
+    font-size:1.25rem;
+}
+
+.pagol{
+    margin-top:7px;
+    font-style:italic;
+    opacity:.7;
+}
+
+/* GPA CELEBRATION */
+
+.gpa{
+    font-size:4rem;
+    animation:gpaPulse 1s infinite alternate;
+}
+
+@keyframes gpaPulse{
+    from{transform:scale(1);}
+    to{transform:scale(1.08);}
+}
+
+/* CONFETTI */
+
+.confetti{
+    position:fixed;
+    top:-30px;
+    width:10px;
+    height:14px;
+    z-index:100;
+    animation:confettiFall linear forwards;
+}
+
+@keyframes confettiFall{
+    to{
+        transform:translateY(110vh) rotate(720deg);
+    }
+}
+
+/* ROSE EXPLOSION */
+
+.burst{
+    position:fixed;
+    z-index:101;
+    pointer-events:none;
+    font-size:30px;
+    animation:burst 2.2s ease-out forwards;
+}
+
+@keyframes burst{
+    0%{
+        transform:translate(0,0) scale(.3);
+        opacity:1;
+    }
+    100%{
+        transform:translate(var(--x),var(--y)) rotate(720deg) scale(1);
+        opacity:0;
+    }
+}
+
+/* MUSIC BUTTON */
+
+.music{
+    position:fixed;
+    top:15px;
+    right:15px;
+    z-index:200;
+    font-size:.85rem;
+    padding:10px 15px;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .screen{
+        min-height:520px;
+        padding:30px 20px;
+    }
+
+    h1{
+        font-size:2.3rem;
+    }
+
+    h2{
+        font-size:1.6rem;
+    }
+
+    .big{
+        font-size:1.7rem;
+    }
+
+    .result{
+        font-size:3rem;
+    }
+
+    .gpa{
+        font-size:3rem;
+    }
+
+    p{
+        font-size:1rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC -->
+<audio id="music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music" onclick="toggleMusic()">
+    🎵 Music
+</button>
+
+<!-- FLOWERS -->
+<div id="flowers"></div>
+
+
+<!-- SCREEN 1 -->
+
+<section class="screen active" id="screen1">
+
+    <div class="emoji">👋</div>
+
+    <h1>Hi, I am Jarif</h1>
+
+    <p>
+        I have something very important to ask you...
+    </p>
+
+    <button class="continue" onclick="startExperience()">
+        Continue 🌹
+    </button>
+
+</section>
+
+
+<!-- SCREEN 2 -->
+
+<section class="screen" id="screen2">
+
+    <div class="emoji">🤨</div>
+
+    <h2>
+        You are Ramisa for real?
+    </h2>
+
+    <button class="yes" onclick="nextScreen(3)">
+        Yes 😭
+    </button>
+
+    <button class="no" id="noButton" onclick="identityCheck()">
+        No 💀
+    </button>
+
+</section>
+
+
+<!-- SCREEN 3 -->
+
+<section class="screen" id="screen3">
+
+    <div class="emoji">😭</div>
+
+    <h2>WHOOOAA</h2>
+
+    <div class="meme">
+
+        <div class="memeEmoji">🧑‍🎓🔥</div>
+
+        Teacher:
+        <br>
+        "How was your SSC?"
+
+        <br><br>
+
+        Ramisa:
+        <br>
+
+        <span style="font-size:1.6rem">
+            1160 / 1250
+        </span>
+
+        <div class="memeSmall">
+            bro casually cooked 💀
+        </div>
+
+    </div>
+
+    <div class="result">
+        1160 / 1250
+    </div>
+
+    <p class="big">
+        That's literally 92.8%, champ! 🏆🔥
+    </p>
+
+    <p>
+        AND A <b>GOLDEN GPA-5</b>?! 🎓✨
+    </p>
+
+    <button class="gold"
+            onclick="gpaCelebration(); nextScreen(4)">
+        GPA-5 UNLOCKED 🔓
+    </button>
+
+</section>
+
+
+<!-- SCREEN 4 -->
+
+<section class="screen" id="screen4">
+
+    <div class="emoji">🥹</div>
+
+    <h2>
+        Okay... jokes aside.
+    </h2>
+
+    <p>
+        Honestly, this isn't just about a number.
+    </p>
+
+    <p>
+        It's about all the effort, pressure,
+        studying and determination that brought
+        you here.
+    </p>
+
+    <div class="meme">
+
+        <div class="memeEmoji">
+            📚😵‍💫➡️🎓
+        </div>
+
+        "I can't do this anymore."
+
+        <br><br>
+
+        Also Ramisa:
+
+        <br>
+
+        <b>GOLDEN GPA-5</b> 💀🔥
+
+    </div>
+
+    <p>
+        <b>
+            You should genuinely be proud of yourself,
+            Ramisa. ❤️
+        </b>
+    </p>
+
+    <button class="continue"
+            onclick="nextScreen(5); typeMessage()">
+        One more thing...
+    </button>
+
+</section>
+
+
+<!-- SCREEN 5 -->
+
+<section class="screen" id="screen5">
+
+    <div class="emoji">🌹</div>
+
+    <h2 class="gradient">
+        A little message for you...
+    </h2>
+
+    <p id="typeText"></p>
+
+    <button class="continue"
+            id="messageButton"
+            style="display:none"
+            onclick="nextScreen(6)">
+        Continue 🌸
+    </button>
+
+</section>
+
+
+<!-- SCREEN 6 -->
+
+<section class="screen" id="screen6">
+
+    <div class="emoji">🎓</div>
+
+    <h2 class="gradient">
+        Congratulations, Ramisa!
+    </h2>
+
+    <div class="gpa">
+        🏆
+    </div>
+
+    <div class="big">
+        GOLDEN GPA-5
+    </div>
+
+    <p>
+        1160 / 1250
+    </p>
+
+    <p>
+        You absolutely did amazing.
+    </p>
+
+    <div>
+        🌹 🌷 🌺 🌸 🥀 💐
+    </div>
+
+    <button class="continue"
+            onclick="nextScreen(7)">
+        Wait... there's more 👀
+    </button>
+
+</section>
+
+
+<!-- SCREEN 7 -->
+
+<section class="screen" id="screen7">
+
+    <!-- OPTIONAL PHOTO -->
+    <img
+        src="ramisa.jpg"
+        class="photo"
+        onerror="this.style.display='none'"
+        alt="Ramisa"
+    >
+
+    <h2>
+        One last thing...
+    </h2>
+
+    <p>
+        I hope you remember this result
+        not just as a number,
+        but as proof that all your hard work
+        was worth it.
+    </p>
+
+    <p>
+        <b>
+            Congratulations again, Ramisa. ❤️
+        </b>
+    </p>
+
+    <button class="continue"
+            onclick="nextScreen(8); roseExplosion()">
+        Open the final surprise 🌹
+    </button>
+
+</section>
+
+
+<!-- SCREEN 8 -->
+
+<section class="screen" id="screen8">
+
+    <div class="emoji">😎</div>
+
+    <h2>
+        And now… a little bit about me.
+    </h2>
+
+    <p>
+        I'm Jarif.
+    </p>
+
+    <p>
+        I made this little website because I wanted
+        to do something different to congratulate you.
+    </p>
+
+    <p>
+        Maybe it's just a small website,
+        but I hope it makes you smile. :)
+    </p>
+
+    <div class="signature">
+
+        <b>
+            — Jarif ❤️
+        </b>
+
+        <div class="pagol">
+            The pagol you know
+        </div>
+
+    </div>
+
+    <button class="continue"
+            onclick="nextScreen(9); roseExplosion();">
+        Wait... 😭
+    </button>
+
+</section>
+
+
+<!-- SCREEN 9 -->
+
+<section class="screen" id="screen9">
+
+    <div class="emoji">💌</div>
+
+    <h2 class="gradient">
+        Okay, REALLY one last thing.
+    </h2>
+
+    <p>
+        You made it through SSC,
+        survived the stress,
+        and came out with a Golden GPA-5.
+    </p>
+
+    <p>
+        So whatever comes next...
+        keep believing in yourself.
+    </p>
+
+    <p>
+        <b>
+            You got this. 🌹
+        </b>
+    </p>
+
+    <div style="font-size:2rem">
+        🌹🌹🌹🌹🌹
+    </div>
+
+    <p class="signature">
+        <b>— Jarif</b>
+        <br>
+        <i>The pagol you know 🤡❤️</i>
+    </p>
+
+</section>
+
+
+<script>
+
+/* =========================================
+   FLOWERS
+========================================= */
+
+const flowers = [
+    "🌹","🌷","🌺","🌸",
+    "🥀","💐","🌻","🌼"
+];
+
+function createFlower(){
+
+    const f = document.createElement("div");
+
+    f.className = "flower";
+
+    f.innerText =
+        flowers[
+            Math.floor(Math.random()*flowers.length)
+        ];
+
+    f.style.left =
+        Math.random()*100+"vw";
+
+    f.style.fontSize =
+        (Math.random()*24+18)+"px";
+
+    f.style.animationDuration =
+        (Math.random()*5+5)+"s";
+
+    document
+        .getElementById("flowers")
+        .appendChild(f);
+
+    setTimeout(()=>{
+        f.remove();
+    },12000);
+}
+
+setInterval(createFlower,260);
+
+
+/* =========================================
+   SPARKLES
+========================================= */
+
+function sparkle(){
+
+    const s=document.createElement("div");
+
+    s.className="sparkle";
+
+    s.innerText="✨";
+
+    s.style.left=Math.random()*100+"vw";
+    s.style.top=Math.random()*100+"vh";
+
+    document.body.appendChild(s);
+
+    setTimeout(()=>{
+        s.remove();
+    },1600);
+}
+
+setInterval(sparkle,450);
+
+
+/* =========================================
+   SCREEN CHANGE
+========================================= */
+
+function nextScreen(n){
+
+    document
+        .querySelectorAll(".screen")
+        .forEach(s=>s.classList.remove("active"));
+
+    document
+        .getElementById("screen"+n)
+        .classList.add("active");
+}
+
+
+/* =========================================
+   START EXPERIENCE
+========================================= */
+
+function startExperience(){
+
+    nextScreen(2);
+
+    const music =
+        document.getElementById("music");
+
+    music.volume=.25;
+
+    music.play().catch(()=>{});
+}
+
+
+/* =========================================
+   MUSIC
+========================================= */
+
+let playing=false;
+
+function toggleMusic(){
+
+    const music =
+        document.getElementById("music");
+
+    if(!playing){
+
+        music.play();
+        playing=true;
+
+    }else{
+
+        music.pause();
+        playing=false;
+
+    }
+}
+
+
+/* =========================================
+   NO BUTTON
+========================================= */
+
+function identityCheck(){
+
+    const screen=
+        document.getElementById("screen2");
+
+    screen.innerHTML=`
+
+        <div class="emoji">🤨</div>
+
+        <h2>
+            Hmm... suspicious.
+        </h2>
+
+        <p>
+            Scanning identity...
+        </p>
+
+        <p id="loading">
+            █░░░░░░░░░ 10%
+        </p>
+    `;
+
+    let progress=10;
+
+    const timer=setInterval(()=>{
+
+        progress+=10;
+
+        const bar=
+            "█".repeat(progress/10)+
+            "░".repeat(10-progress/10);
+
+        const loading=
+            document.getElementById("loading");
+
+        if(loading)
+            loading.innerText=
+                bar+" "+progress+"%";
+
+        if(progress>=100){
+
+            clearInterval(timer);
+
+            setTimeout(()=>{
+
+                screen.innerHTML=`
+
+                    <div class="emoji">💀</div>
+
+                    <h2>
+                        Identity confirmed.
+                    </h2>
+
+                    <div class="meme">
+
+                        <div class="memeEmoji">
+                            🕵️‍♂️
+                        </div>
+
+                        We KNOW it's you.
+
+                        <div class="memeSmall">
+                            suspicious behavior detected
+                        </div>
+
+                    </div>
+
+                    <p>
+                        Nice try, Ramisa. 😂
+                    </p>
+
+                    <button
+                        class="continue"
+                        onclick="nextScreen(3); gpaCelebration()"
+                    >
+                        Okay fine 😭
+                    </button>
+                `;
+
+            },500);
+        }
+
+    },180);
+}
+
+
+/* =========================================
+   TYPEWRITER
+========================================= */
+
+function typeMessage(){
+
+    const text=
+    "Numbers are just numbers. What really matters is all the effort, stress, hard work and determination that got you here. You should genuinely be proud of yourself, Ramisa. You worked for this, and you earned it. ❤️";
+
+    const box=
+        document.getElementById("typeText");
+
+    const button=
+        document.getElementById("messageButton");
+
+    box.innerHTML="";
+
+    let i=0;
+
+    function type(){
+
+        if(i<text.length){
+
+            box.innerHTML+=text.charAt(i);
+
+            i++;
+
+            setTimeout(type,28);
+
+        }else{
+
+            button.style.display="inline-block";
+
+        }
+
+    }
+
+    type();
+}
+
+
+/* =========================================
+   CONFETTI
+========================================= */
+
+function confetti(){
+
+    for(let i=0;i<130;i++){
+
+        const c=
+            document.createElement("div");
+
+        c.className="confetti";
+
+        c.style.left=
+            Math.random()*100+"vw";
+
+        c.style.background=
+            randomColor();
+
+        c.style.animationDuration=
+            (Math.random()*3+2)+"s";
+
+        c.style.width=
+            (Math.random()*8+5)+"px";
+
+        c.style.height=
+            (Math.random()*12+5)+"px";
+
+        document.body.appendChild(c);
+
+        setTimeout(()=>{
+            c.remove();
+        },6000);
+    }
+}
+
+
+/* =========================================
+   GPA CELEBRATION
+========================================= */
+
+function gpaCelebration(){
+
+    confetti();
+
+    roseExplosion();
+
+    setTimeout(roseExplosion,700);
+
+}
+
+
+/* =========================================
+   ROSE EXPLOSION
+========================================= */
+
+function roseExplosion(){
+
+    const roses=[
+        "🌹","🌷","🌺",
+        "🌸","🥀","💐"
+    ];
+
+    for(let i=0;i<70;i++){
+
+        const r=
+            document.createElement("div");
+
+        r.className="burst";
+
+        r.innerText=
+            roses[
+                Math.floor(Math.random()*roses.length)
+            ];
+
+        r.style.left="50vw";
+        r.style.top="50vh";
+
+        r.style.setProperty(
+            "--x",
+            (Math.random()*900-450)+"px"
+        );
+
+        r.style.setProperty(
+            "--y",
+            (Math.random()*700-350)+"px"
+        );
+
+        document.body.appendChild(r);
+
+        setTimeout(()=>{
+            r.remove();
+        },2500);
+    }
+}
+
+
+/* =========================================
+   RANDOM COLORS
+========================================= */
+
+function randomColor(){
+
+    const colors=[
+        "#ff006e",
+        "#fb5607",
+        "#ffbe0b",
+        "#8338ec",
+        "#3a86ff",
+        "#06d6a0",
+        "#ff4d6d"
+    ];
+
+    return colors[
+        Math.floor(Math.random()*colors.length)
+    ];
+}
+
+</script>
+
+</body>
+</html>
